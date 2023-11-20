@@ -221,6 +221,7 @@ reco_train <- with(Training, data_memory(user_index = userId, item_index = movie
 reco_test <- with(Testing, data_memory(user_index = userId, item_index = movieId, rating = rating))
 reco <- Reco()
 reco_tuning <- reco$tune(reco_train, opts = list(dim = c(20, 30), costp_12 = c(0.01, 0.1), costq_12 = c(0.01, 0.1), lrate = c(.005,.05), nthread = 4, niter = 10))
+
 # I started with a large number of dimensions to help identify complex patterns in this huge dataset. However, I chose to reduce to speed up the process for replication.
 # When selecting regularization parameters, I tried to balance the need to prevent over-fitting with the restraints of my laptop. 
 # With the lrate, I similarly wanted to balance the time it would take to run with accuracy.
